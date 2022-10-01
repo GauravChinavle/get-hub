@@ -1,7 +1,6 @@
 const dummyData = require("../data");
 
 function filterInput(whereItem = {}, apiName) {
-    const result = {};
     const statusArray = ["greaterThan", "lessThan", "greaterThanEqualTo", "lessThanEqualTo"];
 
     if (statusArray.includes(whereItem["operator"])) {
