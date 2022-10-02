@@ -5,8 +5,8 @@ GET data as per your needs.
 
 ### How to use ?
   ```
-  git clone https://github.com/GauravChinavle/trading-app.git
-  cd trading-app
+  git clone https://github.com/GauravChinavle/get-hub.git
+  cd get-hub
   npm install
   nodemon bin/www
   ```
