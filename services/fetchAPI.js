@@ -1,22 +1,21 @@
 const dummyData = require("../data");
-const _ = require('lodash');
+const { gt, gte, lt, lte, isEqual } = require('lodash');
 
 function filterInput(whereItem = {}, apiName) {
     const statusArray = ["greaterThan", "lessThan", "greaterThanEqualTo", "lessThanEqualTo"];
 
     const compare = {
-        "greaterThan": _.gt(),
-        "lessThan": _.lt(),
-        "greaterThanEqualTo": _.gte(),
-        "lessThanEqualTo": _.lte()
+        "greaterThan": gt,
+        "lessThan": lt,
+        "greaterThanEqualTo": gte,
+        "lessThanEqualTo": lte
     }   
-
 
     if (Object.keys(compare).includes(whereItem["operator"])) {
         return dummyData[apiName].filter((item) => compare[whereItem["operator"]](item[whereItem["key"]], whereItem["value"]));
     }
 
-    return dummyData[apiName].filter((item) => _.isEqual(item[whereItem["key"]], whereItem["value"]));
+    return dummyData[apiName].filter((item) => isEqual(item[whereItem["key"]], whereItem["value"]));
 }
 
 
